@@ -67,22 +67,6 @@ func corner(i, j int) (float64, float64) {
 	return sx, sy
 }
 
-func getMinMaxZ() (float64, float64) {
-	var min, max float64
-	for i := 0; i < cells; i++ {
-		for j := 0; j < cells; j++ {
-			_, _, z := getXYZ(i, j)
-			if z < min {
-				min = z
-			}
-			if z > max {
-				max = z
-			}
-		}
-	}
-	return min, max
-}
-
 func getXYZ(i, j int) (float64, float64, float64) {
 	// Find point (x,y) at corner of cell (i,j).
 	x := xyrange * (float64(i)/cells - 0.5)
@@ -96,11 +80,6 @@ func getXYZ(i, j int) (float64, float64, float64) {
 func f(x, y float64) float64 {
 	r := math.Hypot(x, y) // distance from (0,0)
 	return math.Sin(r) / r
-}
-
-func g(x, y float64) float64 {
-	r := math.Hypot(x, y)
-	return -0.01 * (r * r)
 }
 
 // z coordinate is -1 .. +1
