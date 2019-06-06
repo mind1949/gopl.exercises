@@ -1,0 +1,17 @@
+package join
+
+import (
+	"testing"
+)
+
+func TestJoin(t *testing.T) {
+	datas := []struct{
+		strs: []string
+		sep: string
+		want: string
+		output: string
+	}{
+		{input: []string{}, want: "",},
+		{input: []string{""}},
+	}
+}
